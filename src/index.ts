@@ -11,23 +11,8 @@ import Phaser from 'phaser';
 import logoImg from './assets/logo.png';
 
 /**
- * Config
+ * Life cycles handlers
  */
-
-const config = {
-  type: Phaser.AUTO,
-  parent: 'phaser-example',
-  width: 800,
-  height: 600,
-  scene: {
-    preload: preload,
-    create: create,
-  },
-};
-
-
-new Phaser.Game(config);
-
 
 function preload(this: any) {
   this.load.image('logo', logoImg);
@@ -45,3 +30,22 @@ function create(this: any) {
     loop: -1,
   });
 }
+
+/**
+ * Bootstrap
+ */
+
+const config = {
+  type: Phaser.AUTO,
+  parent: 'phaser-example',
+  width: 800,
+  height: 600,
+  scene: {
+    preload,
+    create,
+  },
+};
+
+
+// eslint-disable-next-line no-unused-vars
+const game = new Phaser.Game(config);
