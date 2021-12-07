@@ -1,51 +1,13 @@
-/**
- * Vendor
- */
-
 import Phaser from 'phaser';
+import { HomeScene } from './scenes/Home.ts';
 
-/**
- * Assets
- */
-
-import logoImg from './assets/logo.png';
-
-/**
- * Life cycles handlers
- */
-
-function preload(this: any) {
-  this.load.image('logo', logoImg);
-}
-
-function create(this: any) {
-  const logo = this.add.image(400, 150, 'logo');
-
-  this.tweens.add({
-    targets: logo,
-    y: 450,
-    duration: 2000,
-    ease: 'Power2',
-    yoyo: true,
-    loop: -1,
-  });
-}
-
-/**
- * Bootstrap
- */
-
-const config = {
+const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   parent: 'phaser-example',
   width: 800,
   height: 600,
-  scene: {
-    preload,
-    create,
-  },
+  scene: [HomeScene],
 };
-
 
 // eslint-disable-next-line no-unused-vars
 const game = new Phaser.Game(config);
